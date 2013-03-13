@@ -63,8 +63,8 @@ module Vagrant
             config.hosts.each do |host|
               file.write("[#{host}]\n")
               hostline = config.hostname ?
-                          "#{config.hostname} ansible_ssh_host=#{ssh.host} ansible_ssh_port=#{forward}\n" :
-                          "#{ssh.host}:#{forward}\n"
+                          "#{config.hostname} ansible_ssh_host=#{ssh.host} ansible_ssh_port=#{ssh.port}\n" :
+                          "#{ssh.host}:#{ssh.port}\n"
               file.write(hostline)
               file.write("\n")
             end
